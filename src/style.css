@@ -1,36 +1,37 @@
 .yesilbg {
-    background-color: #3BA55D
+    color: #3BA55D
 }
 
 .redbg {
-    background-color: #ED4245
+    color: #ED4245
 }
 
 .saribg {
-    background-color: #FAA81A
+    color: #FAA81A
 }
 
 .graybg {
-    background-color: #747F8D
+    color: #747F8D
 }
 
+
 .pulse-status-dnd {
-    background-color: #ED4245;
+    color: #ED4245;
     border-radius: 50%;
     animation: pulse-dnd 2s infinite;
     }
     .pulse-status-online {
-    background-color: #3BA55D;
+    color: #3BA55D;
     border-radius: 50%;
     animation: pulse-online 2s infinite;
     }
     .pulse-status-idle {
-    background-color: #FAA81A;
+    color: #FAA81A;
     border-radius: 50%;
     animation: pulse-idle 2s infinite;
     }
     .pulse-status-offline {
-    background-color: #747F8D;
+    color: #747F8D;
     border-radius: 50%;
     animation: pulse-offline 2s infinite;
     }

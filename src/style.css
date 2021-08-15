@@ -15,6 +15,70 @@
 }
 
 
+@media screen and (min-width: 768px) {
+    .ceco {
+        position: absolute; top: 546px; left: 670px;
+    }
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.activityBox {
+    width: 500px;
+}
+.message.is-danger {
+    background-color: #0c1117 !important;
+    border-color: #920823 !important;
+    color: #ffffffeb !important;
+}
+.message.is-danger-2 {
+    background-color: #1d1d1d !important;
+}
+.message-body{
+    border-color: #920823 !important;
+    color: #ffffffeb !important;
+}
+.message-body,
+.message.is-danger-2 {
+    border-color: #920823 !important;
+    color: #ffffffeb !important;
+}
+.message.is-success {
+    background-color: #0c1117 !important;
+}
+.message.is-success-2 {
+    background-color: #1d1d1d !important;
+}
+.message.is-success .message-body {
+    border-color: #089269 !important;
+    color: #ffffffeb !important;
+}
+.message.is-success-2 .message-body {
+    border-color: #089269 !important;
+    color: #ffffffeb !important;
+}
+.box-31 {
+    background-color: #0c1117;
+    padding: 10px !important;
+    color: #fff;
+    border-color: #920823 !important;
+    color: #ffffffeb !important;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.box {
+    background-color: #0c1117;
+    color: #fff;
+    font-weight: 500;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
 .pulse-status-dnd {
     color: #ED4245;
     border-radius: 50%;
@@ -91,3 +155,25 @@
     box-shadow: 0 0 0 0 rgba(116, 127, 141, 0);
     }
     }
+
+   
+        @keyframes pulse-sss {
+            0% {
+            transform: scale(0.9);
+            box-shadow: 0 0 0 0 #2196f3;
+            width: 500px;
+            }
+            70% {
+            transform: scale(0.9);
+            box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+            }
+            100% {
+            transform: scale(0.9);
+            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+            }
+            } 
+            .pulse-status-sss {
+                color: #2196f3;
+                animation: pulse-sss 2s infinite;
+                }
+        

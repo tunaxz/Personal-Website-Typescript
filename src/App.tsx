@@ -1,16 +1,18 @@
 import React from "react";
 import useSWR from "swr";
-import db from "quick.db";
-
+import config from "./config/config.json";
+import './style.css'
 
 function App() {
+
   const dcrofli = () => {
-    return fetch(`https://api.lanyard.rest/v1/users/715576724674314360`).then((res) =>
+    return fetch(`https://api.lanyard.rest/v1/users/${config.discord}`).then((res) =>
       res.json()
     );
   };
 const [user, setUser] = React.useState(null)
-const { data } = useSWR("715576724674314360", dcrofli);
+const { data } = useSWR(config.discord, dcrofli);
+
 
 React.useEffect(() => {
 setInterval(async () => {
@@ -18,10 +20,53 @@ setUser(data)
 }, 5000)
 })
 let avatar = `https://cdn.discordapp.com/avatars/${data?.data.discord_user.id}/${data?.data.discord_user.avatar}.gif?size=1024`
-if (!data) {
-  return <p style={{textAlign: 'center', fontSize: "50px", color: "white"}}>Loading...</p>;
-}
+
 const status = data?.data.discord_status;
+let durum = data?.data.activities
+
+console.log(durum)
+let durmum;
+if (status !== "offline") {
+   if(data?.data.activities[0]) {
+if(data?.data.activities[0].id !== "custom"){
+
+if(data?.data.activities[0].name == "Visual Studio Code"){
+  durmum =  <div className="box ml-5 activityBox has-text-white center" style={{textAlign: "center", background: "#2D91D5"}}> <h1 style={{color: "white"}} className="text-lg font-semibold">
+  <img style={{width: "100px", textAlign: 'center',borderRadius: "20%"}} src={`https://cdn.discordapp.com/app-assets/${data?.data.activities[0].application_id}/${data?.data.activities[0].assets.large_image}.png`}></img>
+ <span> {data?.data.activities[0].assets.small_text} <h4 style={{ marginRight: "40px", marginTop: "-20px", fontSize: "15px"}}>{data?.data.activities[0].details} </h4><h4 style={{ marginRight: "70px", marginTop: "-00px", fontSize: "15px"}}>🕐{Math.floor((Date.now() - data?.data.activities[0].timestamps.start) / 60000) === 1 ? Math.floor((Date.now() - data?.data.activities[0].timestamps.start) / 60000) + " minute" : Math.floor((Date.now() - data?.data.activities[0].timestamps.start) / 60000) + " minutes"}</h4> <span> </span>  </span></h1></div>
+  }
+
+ 
+  
+    
+}
+if(data?.data.activities[0].name == "Spotify"){
+durmum =   <div className="box ml-5 activityBox has-text-white center" style={{textAlign: "center", background: "#1cb050"}}> <h1 style={{color: "white"}} className=""><div>
+<img style={{width: "100px", textAlign: 'center',borderRadius: "20%"}} src={`https://i.scdn.co/image/${data?.data.activities[0].assets.large_image.split(':')[1]}`}></img>
+&nbsp; <span style={{fontSize: '10px'}}>{data?.data.activities[0].assets.small_text}</span>  <span>{data?.data.activities[0].details}</span> </div></h1> </div>
+}
+   }
+
+   if(data?.data.activities[1]) {
+    if(data?.data.activities[1].id !== "custom"){
+    
+    if(data?.data.activities[1].name == "Visual Studio Code"){
+      durmum =  <div className="pulse-status-sss message is-danger message-body box-31  center" style={{ width: "500px",borderColor: "#920823", textAlign: "center"}}> <h1 style={{color: "white"}} className="text-lg font-semibold">
+      <img style={{width: "100px", textAlign: 'center',borderRadius: "20%"}} src={`https://cdn.discordapp.com/app-assets/${data?.data.activities[1].application_id}/${data?.data.activities[1].assets.large_image}.png`}></img>
+     <span> {data?.data.activities[1].assets.small_text} <h4 style={{ marginRight: "40px", marginTop: "-20px", fontSize: "15px"}}>{data?.data.activities[1].details} </h4><h4 style={{ marginRight: "70px", marginTop: "-00px", fontSize: "15px"}}>🕐{Math.floor((Date.now() - data?.data.activities[1].timestamps.start) / 60000) === 1 ? Math.floor((Date.now() - data?.data.activities[1].timestamps.start) / 60000) + " minute" : Math.floor((Date.now() - data?.data.activities[1].timestamps.start) / 60000) + " minutes"}</h4> <span> </span>  </span></h1></div>
+      }
+    
+     
+      
+        
+    }
+    if(data?.data.activities[1].name == "Spotify"){
+    durmum =   <div className="box ml-5 activityBox has-text-white center" style={{textAlign: "center", background: "#1cb050"}}> <h1 style={{color: "white"}} className=""><div>
+    <img style={{width: "100px", textAlign: 'center',borderRadius: "20%"}} src={`https://i.scdn.co/image/${data?.data.activities[0].assets.large_image.split(':')[1]}`}></img>
+    &nbsp; <span style={{fontSize: '10px'}}>{data?.data.activities[0].assets.small_text}</span>  <span>{data?.data.activities[0].details}</span> </div></h1> </div>
+    }
+       }
+}
 let color;
 
 if (status === "dnd") {
@@ -36,8 +81,22 @@ if (status === "online") {
  if (status === "offline") {
   color = "graybg";
 }
+
+var loading;
+if (!data) {
+  loading = <img style={{width: "70px"}} src="http://www.camlicauniverse.com/template/img/loading.gif"/>;
+} else {
+  loading =  <h1 style={{color: "white"}} className="text-lg font-semibold">
+  <img className={`pulse-status-${status}`} style={{width: "200px", textAlign: 'center',borderRadius: "20%"}} src={`${avatar}`}></img><br></br><br></br>
+  {data && data?.data.discord_user.username}#{data && data?.data.discord_user.discriminator} <span> </span>
+  <span style={{fontStyle: "bold", borderRadius: ".375rem"}} className={`${color}`}>●</span>
+  </h1>;
+}
+
   return (
     <div>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
       <body style={{background: "#1B202C"}}>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -68,27 +127,24 @@ if (status === "online") {
     
     <div style={{ textAlign: 'center' }} className="pt-6 md:p-8 text-center md:text-left space-y-4">
       <p>
-        <h1 style={{color: "white"}} className="text-lg font-semibold">
-        <img className={`pulse-status-${status}`} style={{width: "200px", textAlign: 'center',borderRadius: "20%"}} src={`${avatar}`}></img><br></br><br></br>
-        {data && data?.data.discord_user.username}#{data && data?.data.discord_user.discriminator} <span> </span>
-        <span style={{fontStyle: "bold", borderRadius: ".375rem"}} className={`${color}`}>●</span>
-        </h1>
+    {loading} 
       </p>
       
   </div>
   <figcaption className="font-medium">
         <div style={{textAlign: 'center',color: "darkgray"}} className="text-cyan-600">
-        Hi I'm Roffly, I'm Back-End Developer and Graphic Design
+        {config.whoamı}
         </div>
-        <div style={{textAlign: 'center', color: "gray"}} className="text-gray-500">
-          <i className="fas fa-search-location"></i> Turkey/Mersin
-        </div>
+     
       </figcaption>
       <div style={{textAlign: 'center'}}>
-      <a href="https://discord.com/users/715576724674314360"><i style={{ fontSize: "20px", color: "white"}} className="fab fa-discord">&nbsp;</i></a>
-       <a href="https://github.com/Roffly"><i style={{ fontSize: "20px", color: "white"}} className="fab fa-github">&nbsp;</i></a>
-       <a href="mailto:roffly00@gmail.com"><i style={{ fontSize: "20px", color: "white"}} className="fas fa-envelope-open-text"></i></a>
+      <a href={`${config.socials[0].href}`}><i style={{ fontSize: "20px", color: "white"}} className={`${config.socials[0].icon}`}>&nbsp;</i></a>
+       <a href={`${config.socials[1].href}`}><i style={{ fontSize: "20px", color: "white"}} className={`${config.socials[1].icon}`}>&nbsp;</i></a>
+       <a href={`${config.socials[2].href}`}><i style={{ fontSize: "20px", color: "white"}} className={`${config.socials[2].icon}`}></i></a>
        </div>
+       <div style={{textAlign: 'center', color: "gray"}} className="text-gray-500">
+       <br/>{durmum} 
+        </div>
   <br/>
   <br/>
   <br/>

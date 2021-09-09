@@ -1,0 +1,21 @@
+{
+    "github": "roffly",
+    "socials": [
+      {
+        "href": "https://discord.com/users/715576724674314360",
+        "icon": ["fab", "discord"],
+        "color": "#ffff"
+      },
+      {
+        "href": "https://github.com/roffly",
+        "icon": ["fab", "github"],
+        "color": "#ffff"
+      },
+      {
+        "href": "mailto:roffly00@gmail.com",
+        "icon": ["fab", "youtube"],
+        "color": "#ffff"
+      }
+    ],
+    "discord": "715576724674314360"
+  }

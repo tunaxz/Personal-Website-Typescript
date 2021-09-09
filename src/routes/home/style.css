@@ -1,0 +1,125 @@
+.yesilbg {
+    color: #3BA55D
+}
+
+.redbg {
+    color: #ED4245
+}
+
+.saribg {
+    color: #FAA81A
+}
+
+.graybg {
+    color: #747F8D
+}
+
+
+@media screen and (min-width: 768px) {
+    .ceco {
+        position: absolute; top: 546px; left: 670px;
+    }
+}
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.activityBox {
+    padding: 10px !important;
+    padding-bottom: 5px !important;
+    width: 200px !important;
+}
+.box {
+    background-color: #0c1117;
+    padding: 10px !important;
+    color: #fff;
+    border-radius: 10%;
+    font-weight: 500;
+    width: 100%;
+}
+.box22 {
+    background-color: #0c1117;
+    padding: 10px !important;
+    color: #fff;
+    border-radius: 10%;
+    font-weight: 500;
+    width: 100%;
+}
+.pulse-status-dnd {
+    color: #ED4245;
+    border-radius: 50%;
+    animation: pulse-dnd 2s infinite;
+    }
+    .pulse-status-online {
+    color: #3BA55D;
+    border-radius: 50%;
+    animation: pulse-online 2s infinite;
+    }
+    .pulse-status-idle {
+    color: #FAA81A;
+    border-radius: 50%;
+    animation: pulse-idle 2s infinite;
+    }
+    .pulse-status-offline {
+    color: #747F8D;
+    border-radius: 50%;
+    animation: pulse-offline 2s infinite;
+    }
+    @keyframes pulse-dnd {
+    0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+    }
+    70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+    }
+    100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+    }
+    }
+    @keyframes pulse-idle {
+    0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(250, 166, 26, 0.7);
+    }
+    70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(250, 166, 26, 0);
+    }
+    100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(250, 166, 26, 0);
+    }
+    }
+    @keyframes pulse-online {
+    0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(67, 181, 129, 0.7);
+    }
+    70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(67, 181, 129, 0);
+    }
+    100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(67, 181, 129, 0);
+    }
+    }
+    @keyframes pulse-offline {
+    0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(116, 127, 141, 0.7);
+    }
+    70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(116, 127, 141, 0);
+    }
+    100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(116, 127, 141, 0);
+    }
+    }
+
